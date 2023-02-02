@@ -192,6 +192,7 @@
             this.buttonRes.TabIndex = 11;
             this.buttonRes.Text = "=";
             this.buttonRes.UseVisualStyleBackColor = false;
+            this.buttonRes.Click += new System.EventHandler(this.buttonRes_Click);
             // 
             // buttonSubstr
             // 
@@ -252,21 +253,22 @@
             this.buttonClear.TabIndex = 16;
             this.buttonClear.Text = "C";
             this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(30, 55);
+            this.label1.Location = new System.Drawing.Point(30, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 17;
-            this.label1.Text = "label1";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(30, 52);
+            this.textBox1.Location = new System.Drawing.Point(30, 72);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(408, 33);
             this.textBox1.TabIndex = 18;
@@ -285,9 +287,9 @@
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(470, 406);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonSubstr);
             this.Controls.Add(this.buttonAdd);

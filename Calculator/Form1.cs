@@ -8,10 +8,11 @@ namespace Calculator
 
         }
 
-        double a, b;
-        int typeOfOperation = 0;
-        bool sign = true;
+        public double a, b;
+        public int typeOfOperation = 0;
+        public bool sign = true;
 
+        #region Обработчики событий нажатий кнопок цифр
         private void button0_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox1.Text + 0;
@@ -67,25 +68,86 @@ namespace Calculator
             textBox1.Text = textBox1.Text + ',';
         }
 
+        #endregion
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
-            textBox1.Text = textBox1.Text + '+';
+            a = double.Parse(textBox1.Text);
+            typeOfOperation = 1;
+            label1.Text = a.ToString() + " + ";
+            textBox1.Clear();
+            sign = true;
         }
 
         private void buttonSubstr_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + '-';
+            a = double.Parse(textBox1.Text);
+            typeOfOperation = 2;
+            label1.Text = a.ToString() + " - ";
+            textBox1.Clear();
+            sign = true;
         }
 
         private void buttonMulti_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + '*';
+            a = double.Parse(textBox1.Text);
+            typeOfOperation = 3;
+            label1.Text = a.ToString() + " * ";
+            textBox1.Clear();
+            sign = true;
         }
 
         private void buttonDiv_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + '/';
+            a = double.Parse(textBox1.Text);
+            typeOfOperation = 4;
+            label1.Text = a.ToString() + " / ";
+            textBox1.Clear();
+            sign = true;
+        }
+
+        private void buttonRes_Click(object sender, EventArgs e)
+        {
+            double res = result();
+            if (res is not double.NaN)
+            {
+                label1.Text += b.ToString() + " = ";
+                textBox1.Text = res.ToString();
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            a = b = typeOfOperation = 0;
+            textBox1.Clear();
+            label1.Text = "";
+        }
+
+        public double result()
+        {
+            switch (typeOfOperation)
+            {
+                case 1:
+                    b = double.Parse(textBox1.Text);
+                    return a + b;
+                    break;
+                case 2:
+                    b = double.Parse(textBox1.Text);
+                    return a - b;
+                    break;
+                case 3:
+                    b = double.Parse(textBox1.Text);
+                    return a * b;
+                    break;
+                case 4:
+                    b = double.Parse(textBox1.Text);
+                    return a / b;
+                    break;
+                default:
+                    return double.NaN;
+                    break;
+            }
+
         }
     }
 }
